@@ -1,9 +1,12 @@
 package main
 
 import (
-	"go/courses/beginner"
+	"fmt"
+
+	beginner "github.com/timtjoe/go-examples/beginner"
 )
 
 func main() {
-	beginner.PrintDistinct()
+	fmt.Println("Hello world!")
+	beginner.Structs()
 }
