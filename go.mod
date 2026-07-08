@@ -1,3 +1,3 @@
-module github.com/timtjoe/go-examples
+module go-examples
 
 go 1.26.4

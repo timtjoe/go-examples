@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	beginner "github.com/timtjoe/go-examples/beginner"
+	beginner "go-examples/beginner"
 )
 
 func main() {
