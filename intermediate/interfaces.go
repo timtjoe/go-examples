@@ -32,7 +32,8 @@ func Assertions() {
 	switch v := i.(type) {
 		case int: fmt.Printf("int: %d\n", v)
 		case string: fmt.Printf("string: %q\n", v)
-		case default: fmt.Printf("other: %v\n", v)
-		
+		default: fmt.Printf("other: %v\n", v)
 	}
+
+	fmt.Print(s, ok)
 }
