@@ -1,6 +1,5 @@
 /*
-	A gorountine is a lightweight thread managed by the Go runtime.
-	Start one with go. They're cheap - millions can run concurrently.
+A gorountine is a function called with go keyword and schedule by go scheduler for execution on the preallocated OS thread.
 */
 
 package intermediate

@@ -7,8 +7,5 @@ import (
 
 func main() {
 fmt.Println("Hello, World!")
-go intermediate.Say("hello")
-go intermediate.Say("world")
-intermediate.SyncMutex()
-intermediate.SyncWait()
+intermediate.RunChan()
 }
