@@ -1,16 +1,31 @@
 package main
-import ("bufio"; "fmt"; "os"; "strconv")
 
-// type Shape interface { ... }
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+) // type Shape interface { ... }
 // type Circle struct { ... }
 // func (c Circle) Area() float64 { ... }
+func safeDivide(a, b int)(q int, err error){
+    defer func ()  {
+        if r := recover(); r != nil {
+            err = fmt.Errorf("divide by zero")
+        }
+    }()
+    return a / b, nil
+}
 
 func main() {
-    sc := bufio.NewScanner(os.Stdin)
-    sc.Scan(); kind := sc.Text()
-    sc.Scan(); dim, _ := strconv.ParseFloat(sc.Text(), 64)
-    var s interface{ Area() float64 }
-    _ = kind; _ = dim
-    // s = ... based on kind
-    if s != nil { fmt.Printf("%.2f\n", s.Area()) }
+   sc := bufio.NewScanner(os.Stdin)
+    sc.Scan(); a, _ := strconv.Atoi(sc.Text())
+    sc.Scan(); b, _ := strconv.Atoi(sc.Text())
+    q, err := safeDivide(a, b)
+   if err != nil {
+    fmt.Printf("error: %s\n", err)
+   } else {
+    fmt.Printf("result: %d\n", q)
+   }
+  
 }
