@@ -37,12 +37,12 @@ type Greeter interface {
 	Greet()
 }
 
-type Dog struct{
+type IDog struct{
 	Name string
 }
 
-func (d Dog) Greet() {} //method on Dog
-func (d *Dog) Bark() {} //method on *Dog
+func (d IDog) Greet() {} //method on Dog
+func (d *IDog) Bark() {} //method on *Dog
 
-var g Greeter = Dog{} // Dog has greet (value receiver)
-var _g Greeter = &Dog{} // *Dog also has Greet
+var g Greeter = IDog{} // Dog has greet (value receiver)
+var _g Greeter = &IDog{} // *Dog also has Greet
