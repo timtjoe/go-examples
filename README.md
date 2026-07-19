@@ -1,8 +1,8 @@
-# Go Intermediate
+# Go Advanced
 
-[![shipthatcode — Go Intermediate](https://api.shipthatcode.com/cert/bf7b295689fef4d99710100af151caea.svg)](https://shipthatcode.com/courses/go-intermediate)
+[![shipthatcode — Go Advanced](https://api.shipthatcode.com/cert/badge.svg)](https://shipthatcode.com/courses/go-advanced)
 
-My working repo for [Go Intermediate](https://shipthatcode.com/courses/go-intermediate) on [shipthatcode.com](https://shipthatcode.com) — built lesson by lesson in my own editor.
+My working repo for [Go Advanced](https://shipthatcode.com/courses/go-advanced) on [shipthatcode.com](https://shipthatcode.com) — built lesson by lesson in my own editor.
 
 ## What you need
 
@@ -25,13 +25,13 @@ Use **WSL** if you can: run `wsl --install` in an admin PowerShell once, then do
    ```sh
    git init
    git add .
-   git commit -m "start Go Intermediate"
+   git commit -m "start Go Advanced"
    git branch -M main
    git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
    git push -u origin main
    ```
 
-4. Paste your repo link on the [course page](https://shipthatcode.com/courses/go-intermediate) ("Work in your own editor" → **Link repo**). Done — you never do this again.
+4. Paste your repo link on the [course page](https://shipthatcode.com/courses/go-advanced) ("Work in your own editor" → **Link repo**). Done — you never do this again.
 
 ## The lesson loop
 

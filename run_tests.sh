@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Local test runner for "Go Intermediate" (shipthatcode.com).
+# Local test runner for "Go Advanced" (shipthatcode.com).
 # Usage:
 #   ./run_tests.sh        run every lesson's tests
 #   ./run_tests.sh 03     run only tests/03-*'s tests
