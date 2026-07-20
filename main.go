@@ -1,32 +1,21 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"os"
-	"strconv"
-	"strings"
+    "bufio"
+    "fmt"
+    "os"
+    "strconv"
+    "strings"
 )
 
-func Filter[T any](s []T, keep func(T) bool) []T { 
-    var result []T 
+func Filter[T any](s []T, keep func(T) bool) []T {
+    var result []T
     for _, x := range s {
         if keep(x) {
-            result =append(result, x)
+            result = append(result, x)
         }
     }
     return result
- }
-
-// Non-generic fallback:
-func filterEvens(s []int) []int {
-    var r []int
-    for _, n := range s {
-        if n%2 == 0 {
-            r = append(r, n)
-        }
-    }
-    return r
 }
 
 func main() {
@@ -37,7 +26,9 @@ func main() {
         n, _ := strconv.Atoi(f)
         nums = append(nums, n)
     }
-    evens := filterEvens(nums)
+
+    evens := Filter(nums, func(n int) bool { return n%2 == 0 })
+
     parts := make([]string, len(evens))
     for i, v := range evens {
         parts[i] = strconv.Itoa(v)
