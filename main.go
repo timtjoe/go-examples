@@ -1,25 +1,46 @@
 package main
+
 import (
-    "fmt"
-    "sync"
-    "sync/atomic"
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
 
-func main() {
-    var counter int64
-    var wg sync.WaitGroup
-    // spawn 100 goroutines
-    for i := 0; i < 100; i++ {
-        wg.Add(1);
-        go func()  {
-            defer wg.Done()
-            // each does 100 atomic.AddInt64(&counter, 1)
-            for j := 0; j < 100; j++ {
-                atomic.AddInt64(&counter, 1)
-            }
-        }()
+func Filter[T any](s []T, keep func(T) bool) []T { 
+    var result []T 
+    for _, x := range s {
+        if keep(x) {
+            result =append(result, x)
+        }
     }
-    wg.Wait()
-    
-    fmt.Println(counter)
+    return result
+ }
+
+// Non-generic fallback:
+func filterEvens(s []int) []int {
+    var r []int
+    for _, n := range s {
+        if n%2 == 0 {
+            r = append(r, n)
+        }
+    }
+    return r
+}
+
+func main() {
+    sc := bufio.NewScanner(os.Stdin)
+    sc.Scan()
+    nums := []int{}
+    for _, f := range strings.Fields(sc.Text()) {
+        n, _ := strconv.Atoi(f)
+        nums = append(nums, n)
+    }
+    evens := filterEvens(nums)
+    parts := make([]string, len(evens))
+    for i, v := range evens {
+        parts[i] = strconv.Itoa(v)
+    }
+    fmt.Println(strings.Join(parts, " "))
 }
