@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+type db struct {}
 
 func fetchUser(ctx context.Context, id string)(*User, error){
 	select {
