@@ -11,10 +11,13 @@ import (
 func sumWithCtx(ctx context.Context, nums []int) (int, error) {
     total := 0
     for _, n := range nums {
-        // select on ctx.Done
-        _ = n
+        select {
+        case <-ctx.Done(): return 0, ctx.Err() //return immediately if cancelled
+        default: //continue
+        }
+        time.Sleep(time.Microsecond)
+        total += n
     }
-    _ = time.Millisecond
     return total, nil
 }
 
