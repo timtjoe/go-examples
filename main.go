@@ -1,37 +1,23 @@
 package main
-
 import (
-    "bufio"
     "fmt"
-    "os"
-    "strconv"
-    "strings"
+    "reflect"
 )
 
-func Filter[T any](s []T, keep func(T) bool) []T {
-    var result []T
-    for _, x := range s {
-        if keep(x) {
-            result = append(result, x)
-        }
-    }
-    return result
+type Person struct {
+    Name string
+    Age  int
 }
 
 func main() {
-    sc := bufio.NewScanner(os.Stdin)
-    sc.Scan()
-    nums := []int{}
-    for _, f := range strings.Fields(sc.Text()) {
-        n, _ := strconv.Atoi(f)
-        nums = append(nums, n)
-    }
+    p := Person{Name: "Ada", Age: 36}
+    // use reflect.TypeOf and reflect.ValueOf to iterate
+    rv := reflect.ValueOf(p)
+    rt := reflect.TypeOf(p)
 
-    evens := Filter(nums, func(n int) bool { return n%2 == 0 })
-
-    parts := make([]string, len(evens))
-    for i, v := range evens {
-        parts[i] = strconv.Itoa(v)
+    for i := 0; i < rt.NumField(); i++ {
+        field := rt.Field(i)
+        value := rv.Field(i).Interface()
+		fmt.Printf("%s: %v\n", field.Name, value)
     }
-    fmt.Println(strings.Join(parts, " "))
 }
